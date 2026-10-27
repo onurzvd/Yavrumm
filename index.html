@@ -1,0 +1,268 @@
+y<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#650D24">
+    <title>16 Mayıs'tan Sonsuza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Müzik Kontrolü -->
+    <div class="music-control" id="musicControl">
+        <button class="music-button" id="musicButton" aria-label="Müzik kontrolü">
+            <svg class="music-icon" id="musicIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+        </button>
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="60" aria-label="Ses seviyesi">
+    </div>
+
+    <!-- İlerleme Çubuğu -->
+    <div class="progress-bar" id="progressBar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Aşağı Kaydır İşareti -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-text">Aşağı Kaydır</div>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </div>
+
+    <!-- Ana Konteyner -->
+    <div class="container" id="container">
+        
+        <!-- Ekran 1: Açılış -->
+        <section class="screen" id="screen1" data-screen="1">
+            <div class="screen-content intro-screen">
+                <div class="hearts-animation" id="heartsAnimation"></div>
+                <h1 class="main-title">16 Mayıs'tan Sonsuza</h1>
+                <div class="intro-text">
+                    <p class="subtitle">Senin için küçük bir şey hazırladım…</p>
+                    <p class="subtitle-secondary">Sonuna kadar izle. Çünkü bu, sıradan bir hikâye değil.</p>
+                </div>
+                <button class="start-button" id="startButton">Tıklayınız</button>
+            </div>
+        </section>
+
+        <!-- Ekran 2: Hikâyenin Başlangıcı -->
+        <section class="screen" id="screen2" data-screen="2">
+            <div class="screen-content story-screen">
+                <div class="glow-effect"></div>
+                <h2 class="section-title">Her Şey Bir Günde Başladı</h2>
+                <div class="story-text">
+                    <p class="date-highlight">16 Mayıs 2026</p>
+                    <p class="narrative">
+                        O gün bilmiyordum ki, hayatım bambaşka bir renge bürünecek.
+                        Seni tanıdığım an, zamanın nasıl akıp gittiğini unutmuşum.
+                    </p>
+                    <p class="narrative">
+                        Ve işte buradayız. O günden bugüne, her anı seninle yaşamak gibisi yok.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ekran 3: Zamanın Hikâyesi -->
+        <section class="screen" id="screen3" data-screen="3">
+            <div class="screen-content stats-screen">
+                <div class="glow-effect"></div>
+                <h2 class="section-title">Zamanın Hikâyesi</h2>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number" id="daysSince">0</div>
+                        <div class="stat-label">Gün Geçti</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="monthsSince">0</div>
+                        <div class="stat-label">Ay Birlikte</div>
+                    </div>
+                </div>
+                <p class="stats-subtitle">
+                    Ve her bir gün seninle daha anlamlı
+                </p>
+            </div>
+        </section>
+
+        <!-- Ekran 4: Bizim Şarkımız -->
+        <section class="screen" id="screen4" data-screen="4">
+            <div class="screen-content music-screen">
+                <div class="vinyl-container">
+                    <div class="vinyl-record" id="vinylRecord">
+                        <div class="vinyl-center"></div>
+                        <div class="vinyl-grooves"></div>
+                    </div>
+                </div>
+                <h2 class="section-title">Bizim Şarkımız</h2>
+                <p class="music-description">
+                    Çalan bu melodi, her notasıyla bize ait.
+                    Her dinleyişimde seni hatırlıyorum.
+                </p>
+            </div>
+        </section>
+
+        <!-- Ekran 5: Fotoğraf 1 -->
+        <section class="screen photo-screen" id="screen5" data-screen="5">
+            <div class="screen-content single-photo-screen">
+                <div class="photo-main">
+                    <img src="photos/photo-01.jpg" alt="İlk anımız" loading="lazy">
+                </div>
+                <p class="photo-text">Her şeyin başladığı an...</p>
+            </div>
+        </section>
+
+        <!-- Ekran 6: Fotoğraf 2 -->
+        <section class="screen photo-screen" id="screen6" data-screen="6">
+            <div class="screen-content single-photo-screen">
+                <div class="photo-main">
+                    <img src="photos/photo-02.jpg" alt="Gülüşlerin" loading="lazy">
+                </div>
+                <p class="photo-text">Gülüşün bana huzur veriyor</p>
+            </div>
+        </section>
+
+        <!-- Ekran 7: Fotoğraf 3 -->
+        <section class="screen photo-screen" id="screen7" data-screen="7">
+            <div class="screen-content single-photo-screen">
+                <div class="photo-main">
+                    <img src="photos/photo-03.jpg" alt="Birlikte" loading="lazy">
+                </div>
+                <p class="photo-text">Seninle her an özel</p>
+            </div>
+        </section>
+
+        <!-- Ekran 8: Fotoğraf 4 -->
+        <section class="screen photo-screen" id="screen8" data-screen="8">
+            <div class="screen-content single-photo-screen">
+                <div class="photo-main">
+                    <img src="photos/photo-04.jpg" alt="Mutluluk" loading="lazy">
+                </div>
+                <p class="photo-text">Mutluluğum seninle tam</p>
+            </div>
+        </section>
+
+        <!-- Ekran 9: Fotoğraf 5 -->
+        <section class="screen photo-screen" id="screen9" data-screen="9">
+            <div class="screen-content single-photo-screen">
+                <div class="photo-main">
+                    <img src="photos/photo-05.jpg" alt="Özel anlar" loading="lazy">
+                </div>
+                <p class="photo-text">Yanımda olduğun her an özel</p>
+            </div>
+        </section>
+
+        <!-- Ekran 10: Fotoğraf 6 -->
+        <section class="screen photo-screen" id="screen10" data-screen="10">
+            <div class="screen-content single-photo-screen">
+                <div class="photo-main">
+                    <img src="photos/photo-06.jpg" alt="Gülüşün" loading="lazy">
+                </div>
+                <p class="photo-text">Gülüşün dünyamı aydınlatıyor</p>
+            </div>
+        </section>
+
+        <!-- Ekran 11: Fotoğraf 7 -->
+        <section class="screen photo-screen" id="screen11" data-screen="11">
+            <div class="screen-content single-photo-screen">
+                <div class="photo-main">
+                    <img src="photos/photo-07.jpg" alt="Bakışların" loading="lazy">
+                </div>
+                <p class="photo-text">Bakışlarında kayboluyorum</p>
+            </div>
+        </section>
+
+        <!-- Ekran 12: Fotoğraf 8 -->
+        <section class="screen photo-screen" id="screen12" data-screen="12">
+            <div class="screen-content single-photo-screen">
+                <div class="photo-main">
+                    <img src="photos/photo-08.jpg" alt="Huzur" loading="lazy">
+                </div>
+                <p class="photo-text">Sesinle huzur buluyorum</p>
+            </div>
+        </section>
+
+        <!-- Ekran 13: Sana Dair -->
+        <section class="screen" id="screen13" data-screen="13">
+            <div class="screen-content letter-screen">
+                <div class="glow-effect"></div>
+                <h2 class="section-title">İpek</h2>
+                <div class="letter-content">
+                    <p class="letter-text">
+                        Seninle olmak, hayata farklı bir pencereden bakmak gibi.
+                        Her sabah uyandığımda, seninle paylaşacağım bir şeyler olduğunu bilmek bana güç veriyor.
+                    </p>
+                    <p class="letter-text">
+                        Sessizliğinde bile bir huzur var. Gülüşünde bir sıcaklık.
+                        Bazen kelimeler yetmiyor sana olan sevgimi anlatmaya.
+                    </p>
+                    <p class="letter-text">
+                        Ama işte bu sayfa, küçük bir başlangıç. Seninle geçirdiğim her anı hatırlatmak için.
+                        Çünkü sen, benim için her şeyden fazlasısın, balım.
+                    </p>
+                </div>
+                <div class="secret-heart" id="secretHeart">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gizli Mesaj Modal -->
+        <div class="secret-modal" id="secretModal">
+            <div class="secret-modal-content">
+                <button class="secret-close" id="secretClose">&times;</button>
+                <h3 class="secret-title">Gizli Mesaj 💌</h3>
+                <p class="secret-message">
+                    Her gece uyumadan önce senin için minnettarlık duyuyorum.
+                    Hayatıma kattığın renk, anlam ve sevgi için...
+                    Bunun gibi nice yıllar birlikte geçirmek dileğiyle.
+                    Seni seviyorum, İpek.
+                </p>
+            </div>
+        </div>
+
+        <!-- Ekran 14: Final -->
+        <section class="screen" id="screen14" data-screen="14">
+            <div class="screen-content final-screen">
+                <div class="final-hearts" id="finalHearts"></div>
+                <div class="final-content">
+                    <h2 class="final-title">Belki de En Güzel Anımız Henüz Yaşanmadı</h2>
+                    <p class="final-message">
+                        Ama seninle yaşayacağım her yeni günün hikâyemizin bir parçası olacağını bilmek bile bana yetiyor.
+                        Geçmişimiz güzeldi, şimdimiz huzurlu, geleceğimiz ise seninle parlak.
+                    </p>
+                    <div class="final-collage">
+                        <div class="collage-item"><img src="photos/photo-01.jpg" alt="Anı" loading="lazy"></div>
+                        <div class="collage-item"><img src="photos/photo-03.jpg" alt="Anı" loading="lazy"></div>
+                        <div class="collage-item"><img src="photos/photo-05.jpg" alt="Anı" loading="lazy"></div>
+                        <div class="collage-item"><img src="photos/photo-07.jpg" alt="Anı" loading="lazy"></div>
+                    </div>
+                    <p class="final-signature">
+                        Seni seven, <br>
+                        <strong>Onur</strong>
+                    </p>
+                    <button class="replay-button" id="replayButton">Yeniden İzle</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Ses Elementi -->
+    <audio id="backgroundMusic" preload="auto" loop>
+        <source src="music/our-song.mp3" type="audio/mpeg">
+        Tarayıcınız ses dosyasını desteklemiyor.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
